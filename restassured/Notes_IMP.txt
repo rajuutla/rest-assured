@@ -1,0 +1,25 @@
+
+Rest Assured public Rest API's:
+-----------------------------------
+
+https://www.youtube.com/watch?v=vjxy3KkYihQ&index=2&list=PLEiBaBxmVLi-hoi61aX-2agQb8EXSCT5f
+
+http://services.groupkt.com/country/get/all
+http://services.groupkt.com/country/get/iso2code/US
+
+http://services.groupkt.com/country/search?text=lands
+
+http://jsonplaceholder.typicode.com/posts/3
+
+
+WebServices:
+
+1. WSDL
+2. UDDI - optional
+3. SKELETON
+4. STUB
+5. SOAP
+6. HTTP
+
+Selenium Tool:
+--------------------
