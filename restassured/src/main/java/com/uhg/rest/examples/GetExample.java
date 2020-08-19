@@ -1,20 +1,20 @@
 package com.uhg.rest.examples;
 
-import static io.restassured.RestAssured.given;
+
+import static io.restassured.RestAssured.*;
+
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.hasItems;
 import static org.hamcrest.CoreMatchers.is;
-import static io.restassured.RestAssured.*;
-
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.Test;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+
+//import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class GetExample {
 	
@@ -73,8 +73,8 @@ public class GetExample {
 	
 	//@Test
 	public void launchChrome() {
-		WebDriverManager.chromedriver().setup();
-		ChromeOptions options = new ChromeOptions();
+		//WebDriverManager.chromedriver().setup();
+		//ChromeOptions options = new ChromeOptions();
 				
 		WebDriver driver = new ChromeDriver();
 		driver.get("http://google.com");

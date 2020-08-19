@@ -21,9 +21,11 @@ public class SikuiTest {
 		driver.get(url);
 		
 		Screen s = new Screen();
-		Pattern pat= new Pattern();
-		s.wait(pat, 2000);
+		Pattern pat= new Pattern(System.getProperty("user.dir")+"/images/play.png");
+		s.wait(pat, 5000);
 		s.click();
+		
+		
 	}
 
 }
