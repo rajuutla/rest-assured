@@ -14,36 +14,40 @@ import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+import com.uhg.base.ElementUtils;
 
-public class InitTest {
+public class InitTest extends ElementUtils {
 	
+	//public static ThreadLocal<ExtentReports> extent = new ThreadLocal<>();
+
 	public static ExtentReports extent;
-	ExtentSparkReporter htmlReporter ;
-	ExtentTest logger;
-	
-	
-	
-	  @BeforeMethod 
-	  public void beforeMethod(Method method) {
-	  System.out.println("Executing the method : "+method.getName());
-	  System.out.println("extent object = "+extent.toString());
-	  logger = extent.createTest(method.getName()+" MyFirstTest"); 
-	  }
-	 
-	
+	public static ExtentSparkReporter htmlReporter;
+	public static ExtentTest logger;
+
+	@BeforeMethod
+	public void beforeMethod(Method method) {
+		System.out.println("Executing the method : " + method.getName());
+		//System.out.println("extent object = " + extent.get().toString());
+		logger = extent.createTest(method.getName() + " MyFirstTest");
+
+		getDriver();
+		launchApp();
+
+	}
+
 	@BeforeSuite
-	public  void beforeTest() {
-		
-		htmlReporter =new ExtentSparkReporter(System.getProperty("user.dir") +"/target/testReport.html");
+	public void beforeSuite() {
+
+		htmlReporter = new ExtentSparkReporter(System.getProperty("user.dir") + "/target/testReport.html");
 		extent = new ExtentReports();
 		extent.attachReporter(htmlReporter);
 	}
-	
+
 	@AfterSuite
 	public void afterSuite() {
 		extent.flush();
 	}
-	
+
 	@AfterMethod
 	public void afterMethod(ITestResult result) {
 
@@ -59,6 +63,8 @@ public class InitTest {
 					MarkupHelper.createLabel(result.getName() + "Test Case SKIPPED", ExtentColor.ORANGE));
 			logger.skip(result.getThrowable());
 		}
+
+		quitBrowser();
 
 	}
 
