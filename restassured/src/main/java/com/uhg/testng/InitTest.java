@@ -24,7 +24,7 @@ public class InitTest extends ElementUtils {
 	public static ExtentSparkReporter htmlReporter;
 	public static ExtentTest logger;
 
-	@BeforeMethod
+	@BeforeMethod(alwaysRun = true)
 	public void beforeMethod(Method method) {
 		System.out.println("Executing the method : " + method.getName());
 		//System.out.println("extent object = " + extent.get().toString());
@@ -35,7 +35,7 @@ public class InitTest extends ElementUtils {
 
 	}
 
-	@BeforeSuite
+	@BeforeSuite(alwaysRun = true)
 	public void beforeSuite() {
 
 		htmlReporter = new ExtentSparkReporter(System.getProperty("user.dir") + "/target/testReport.html");
@@ -43,12 +43,12 @@ public class InitTest extends ElementUtils {
 		extent.attachReporter(htmlReporter);
 	}
 
-	@AfterSuite
+	@AfterSuite(alwaysRun = true)
 	public void afterSuite() {
 		extent.flush();
 	}
 
-	@AfterMethod
+	@AfterMethod(alwaysRun = true)
 	public void afterMethod(ITestResult result) {
 
 		if (result.getStatus() == ITestResult.FAILURE) {

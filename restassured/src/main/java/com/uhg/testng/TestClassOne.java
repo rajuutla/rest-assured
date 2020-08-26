@@ -5,10 +5,14 @@ import org.testng.annotations.Test;
 
 public class TestClassOne extends InitTest {
 
-	@Test
+	@Test(groups="smoke")
 	public void testClassOneMethod1() {
 		System.out.println("testClassOneMethod1");
-		Assert.assertTrue(verifyPageTitle("google.co.in"));
+		
+		System.out.println("env var = "+System.getProperty("env"));
+		Assert.assertTrue(verifyPageTitle("Google"));
+		
+		
 
 	}
 
